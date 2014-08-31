@@ -254,51 +254,6 @@ var getRepoMetadata = function(callback) {
 
     lastRepoMetaTimestamp = Date.now();
 
-    // https://github.com/gorhill/uBlock/issues/84
-    // First try to load from the actual home server of a third-party.
-    var parseHomeURLs = function(text) {
-        var entries = repoMetadata.entries;
-        var urlPairs = text.split(/\n\n+/);
-        var i = urlPairs.length;
-        var pair, pos, k, v;
-        while ( i-- ) {
-            pair = urlPairs[i];
-            pos = pair.indexOf('\n');
-            if ( pos === -1 ) {
-                continue;
-            }
-            k = 'assets/thirdparties/' + pair.slice(0, pos).trim();
-            v = pair.slice(pos).trim();
-            if ( k === '' || v === '' ) {
-                continue;
-            }
-            if ( entries[k] === undefined ) {
-                entries[k] = new AssetEntry();
-            }
-            entries[k].homeURL = v;
-        }
-        while ( callback = repoMetadata.waiting.pop() ) {
-            callback(repoMetadata);
-        }
-    };
-
-    var pathToHomeURLs = 'assets/ublock/thirdparty-lists.txt';
-
-    var onLocalHomeURLsLoaded = function(details) {
-        parseHomeURLs(details.content);
-    };
-
-    var onRepoHomeURLsLoaded = function(details) {
-        var entries = repoMetadata.entries;
-        var entry = entries[pathToHomeURLs];
-        if ( YaMD5.hashStr(details.content) !== entry.repoChecksum ) {
-            entry.repoChecksum = entry.localChecksum;
-            readLocalFile(pathToHomeURLs, onLocalHomeURLsLoaded);
-            return;
-        }
-        cachedAssetsManager.save(pathToHomeURLs, details.content, onLocalHomeURLsLoaded);
-    };
-
     var localChecksums;
     var repoChecksums;
 
@@ -329,12 +284,9 @@ var getRepoMetadata = function(callback) {
         if ( checksumsChanged ) {
             updateLocalChecksums();
         }
-        // Fetch and store homeURL associations
-        entry = entries[pathToHomeURLs];
-        if ( entry.localChecksum !== entry.repoChecksum ) {
-            readRepoFile(pathToHomeURLs, onRepoHomeURLsLoaded);
-        } else {
-            readLocalFile(pathToHomeURLs, onLocalHomeURLsLoaded);
+        // Notify all waiting callers
+        while ( callback = repoMetadata.waiting.pop() ) {
+            callback(repoMetadata);
         }
     };
 
@@ -387,6 +339,19 @@ var getRepoMetadata = function(callback) {
 };
 
 // https://www.youtube.com/watch?v=-t3WYfgM4x8
+
+/******************************************************************************/
+
+exports.setHomeURL = function(path, homeURL) {
+    var onRepoMetadataReady = function(metadata) {
+        var entry = metadata.entries[path];
+        if ( entry === undefined ) {
+            entry = metadata.entries[path] = new AssetEntry();
+        }
+        entry.homeURL = homeURL;
+    }
+    getRepoMetadata(onRepoMetadataReady);
+};
 
 /******************************************************************************/
 
@@ -578,12 +543,15 @@ var readRepoCopyAsset = function(path, callback) {
     var onCacheMetaReady = function(entries) {
         // Fetch from remote if:
         // - Auto-update enabled AND (not in cache OR in cache but obsolete)
-        var timestamp = entries[path];
-        var obsolete = Date.now() - exports.autoUpdateDelay;
-        if ( exports.autoUpdate && (typeof timestamp !== 'number' || timestamp <= obsolete) ) {
-            //console.log('µBlock> readRepoCopyAsset("%s") / onCacheMetaReady(): not cached or obsolete', path);
-            getTextFileFromURL(assetEntry.homeURL, onHomeFileLoaded, onHomeFileError);
-            return;
+        var homeURL = assetEntry.homeURL;
+        if ( exports.autoUpdate && typeof homeURL === 'string' && homeURL !== '' ) {
+            var timestamp = entries[path];
+            var obsolete = Date.now() - exports.autoUpdateDelay;
+            if ( typeof timestamp !== 'number' || timestamp <= obsolete ) {
+                //console.log('µBlock> readRepoCopyAsset("%s") / onCacheMetaReady(): not cached or obsolete', path);
+                getTextFileFromURL(homeURL, onHomeFileLoaded, onHomeFileError);
+                return;
+            }
         }
 
         // In cache
@@ -608,7 +576,12 @@ var readRepoCopyAsset = function(path, callback) {
         // Repo copy changed: fetch from home URL
         if ( exports.autoUpdate && assetEntry.localChecksum !== assetEntry.repoChecksum ) {
             //console.log('µBlock> readRepoCopyAsset("%s") / onRepoMetaReady(): repo has newer version', path);
-            getTextFileFromURL(assetEntry.homeURL, onHomeFileLoaded, onHomeFileError);
+            var homeURL = assetEntry.homeURL;
+            if ( typeof homeURL === 'string' && homeURL !== '' ) {
+                getTextFileFromURL(homeURL, onHomeFileLoaded, onHomeFileError);
+            } else {
+                getTextFileFromURL(repositoryURL, onRepoFileLoaded, onRepoFileError);
+            }
             return;
         }
 
@@ -894,14 +867,27 @@ exports.put = function(path, content, callback) {
 
 /******************************************************************************/
 
-exports.purge = function(pattern, before) {
-    cachedAssetsManager.remove(pattern, before);
-};
-
-/******************************************************************************/
-
 exports.metadata = function(callback) {
     var out = {};
+
+    // https://github.com/gorhill/uBlock/issues/186
+    // We need to check cache obsolescence when both cache and repo meta data
+    // has been gathered.
+    var checkCacheObsolescence = function() {
+        var obsolete = Date.now() - exports.autoUpdateDelay;
+        var entry;
+        for ( var path in out ) {
+            if ( out.hasOwnProperty(path) === false ) {
+                continue;
+            }
+            entry = out[path];
+            entry.cacheObsolete =
+                typeof entry.homeURL === 'string' &&
+                entry.homeURL !== '' &&
+                (typeof entry.lastModified !== 'number' || entry.lastModified <= obsolete);
+        }
+        callback(out);
+    };
 
     var onRepoMetaReady = function(meta) {
         var entries = meta.entries;
@@ -919,18 +905,11 @@ exports.metadata = function(callback) {
             entryOut.repoChecksum = entryRepo.repoChecksum;
             entryOut.homeURL = entryRepo.homeURL;
             entryOut.repoObsolete = entryOut.localChecksum !== entryOut.repoChecksum;
-            // If the asset has a remote home and there is no corresponding
-            // cache entry, it could be obsolete (because the asset could
-            // have been modified after uBlock repo was updated).
-            if ( entryOut.homeURL && typeof entryOut.lastModified !== 'number' ) {
-                entryOut.cacheObsolete = true;
-            }
         }
-        callback(out);
+        checkCacheObsolescence();
     };
 
     var onCacheMetaReady = function(entries) {
-        var obsolete = Date.now() - exports.autoUpdateDelay;
         var entryOut;
         for ( var path in entries ) {
             if ( entries.hasOwnProperty(path) === false ) {
@@ -946,7 +925,6 @@ exports.metadata = function(callback) {
                 continue;
             }
             entryOut.cached = true;
-            entryOut.cacheObsolete = entryOut.lastModified <= obsolete;
             if ( reIsExternalPath.test(path) ) {
                 entryOut.homeURL = path;
             }
@@ -955,6 +933,12 @@ exports.metadata = function(callback) {
     };
 
     cachedAssetsManager.entries(onCacheMetaReady);
+};
+
+/******************************************************************************/
+
+exports.purge = function(pattern, before) {
+    cachedAssetsManager.remove(pattern, before);
 };
 
 /******************************************************************************/

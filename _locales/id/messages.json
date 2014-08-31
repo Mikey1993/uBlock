@@ -4,231 +4,231 @@
     "description":"extension name."
   },
   "extShortDesc":{
-    "message":"Finally, an efficient blocker for Chromium-based browsers. Easy on CPU and memory.",
+    "message":"Akhirnya, pemblokir yang efisien untuk perambah berbasis Chromium. Penggunaan CPU dan memori ringan.",
     "description":"this will be in the chrome web store: must be 132 characters or less"
   },
   "settingsPageName":{
-    "message":"Settings",
+    "message":"Pengaturan",
     "description":"appears as tab name in dashboard."
   },
   "3pPageName":{
-    "message":"3rd-party filters",
+    "message":"Filter pihak ke-3",
     "description":"appears as tab name in dashboard."
   },
   "1pPageName":{
-    "message":"Your filters",
+    "message":"Filter Anda",
     "description":"appears as tab name in dashboard."
   },
   "whitelistPageName":{
-    "message":"Whitelist",
+    "message":"Daftar putih",
     "description":"appears as tab name in dashboard."
   },
   "statsPageName":{
-    "message":"Statistics",
+    "message":"Statistik",
     "description":"appears as tab name in dashboard."
   },
   "aboutPageName":{
-    "message":"About",
+    "message":"Tentang",
     "description":"appears as tab name in dashboard."
   },
   "popupPowerSwitchInfo":{
-    "message":"Click: permanently disable\/enable µBlock for this site.\n\nCtrl+click: disable µBlock only on this page.",
+    "message":"Klik: Nonaktifkan\/Aktifkan µBlock di situs ini secara permanen.\n\nCtrl+klik: Nonaktifkan µBlock hanya di halaman ini.",
     "description":"English: Click: permanently disable\/enable µBlock for this site.\n\nCtrl+click: disable µBlock only on this page."
   },
   "popupBlockedRequestPrompt":{
-    "message":"requests blocked",
+    "message":"permintaan yang diblokir",
     "description":"English: requests blocked"
   },
   "popupBlockedOnThisPagePrompt":{
-    "message":"on this page",
+    "message":"di halaman ini",
     "description":"English: on this page"
   },
   "popupBlockedSinceInstallPrompt":{
-    "message":"since install",
+    "message":"sejak diinstall",
     "description":"English: since install"
   },
   "popupOr":{
-    "message":"or",
+    "message":"atau",
     "description":"English: or"
   },
   "popupTipDashboard":{
-    "message":"Click to open the dashboard",
+    "message":"Klik untuk membuka dasbor",
     "description":"English: Click to open the dashboard"
   },
   "popupTipPicker":{
-    "message":"Enter element picker mode",
+    "message":"Memasuki mode pemilihan elemen",
     "description":"English: Enter element picker mode"
   },
   "popupTipLog":{
-    "message":"Go to request log",
+    "message":"Menuju log permintaan",
     "description":"English: Go to request log"
   },
   "pickerCreate":{
-    "message":"Create",
+    "message":"Membuat",
     "description":"English: Create"
   },
   "pickerPick":{
-    "message":"Pick",
+    "message":"Pilih",
     "description":"English: Pick"
   },
   "pickerQuit":{
-    "message":"Quit",
+    "message":"Keluar",
     "description":"English: Quit"
   },
   "pickerNetFilters":{
-    "message":"Net filters",
+    "message":"Filter jaringan",
     "description":"English: Net filters"
   },
   "pickerCosmeticFilters":{
-    "message":"Cosmetic filters",
+    "message":"Filter kosmetik",
     "description":"English: Cosmetic filters"
   },
   "settingsCollapseBlockedPrompt":{
-    "message":"Hide placeholders of blocked elements",
+    "message":"Sembunyikan tempat elemen yang diblokir",
     "description":"English: Hide placeholders of blocked elements"
   },
   "settingsIconBadgePrompt":{
-    "message":"Show the number of blocked requests on the icon",
+    "message":"Tampilkan jumlah permintaan yang diblokir pada ikon",
     "description":"English: Show the number of blocked requests on the icon"
   },
   "3pListsOfBlockedHostsPrompt":{
-    "message":"{{netFilterCount}} network filters ＋ {{cosmeticFilterCount}} cosmetic filters from:",
+    "message":"{{netFilterCount}} filter jaringan + filter kosmetik {{cosmeticFilterCount}} dari:",
     "description":"English: {{netFilterCount}} network filters ＋ {{cosmeticFilterCount}} cosmetic filters from:"
   },
   "3pListsOfBlockedHostsPerListStats":{
-    "message":"{{used}} used out of {{total}}",
+    "message":"{{used}} telah terpakai dari {{total}}",
     "description":"English: {{used}} used out of {{total}}"
   },
   "3pAutoUpdatePrompt1":{
-    "message":"Auto-update filter lists.",
+    "message":"Perbaharui daftar filter secara otomatis.",
     "description":"English: Auto-update filter lists."
   },
   "3pUpdateNow":{
-    "message":"Update now",
+    "message":"Perbarui sekarang",
     "description":"English: Update now"
   },
   "3pParseAllABPHideFiltersPrompt1":{
-    "message":"Parse and enforce cosmetic filters.",
+    "message":"Baca dan jalankan filter kosmetik.",
     "description":"English: Parse and enforce Adblock+ element hiding filters."
   },
   "3pParseAllABPHideFiltersInfo":{
-    "message":"<p>This option enables the parsing and enforcing of <a href=\"https:\/\/adblockplus.org\/en\/faq_internal#elemhide\">Adblock Plus-compatible &ldquo;element hiding&rdquo; filters<\/a>. These filters are essentially cosmetic, they serve to hide elements in a web page which are deemed to be a visual nuisance, and which can't be blocked by the net request-based filtering engine.<\/p><p>Enabling this feature increases <i>µBlock<\/i>'s memory footprint.<\/p>",
+    "message":"<p>Opsi ini mengaktifkan pembacaan dan menjalankan filter <a href=\"https:\/\/adblockplus.org\/en\/faq_internal#elemhide\"> \"sembunyikan elemen\" yang kompatibel dengan Adblock Plus<\/a>. Filter ini hanya kosmetik, berfungsi untuk menyembunyikan elemen di halaman web yang dinilai sebagai gangguan visual, dan yang tidak dapat diblokir oleh filter berbasis permintaan jaringan.<\/p><p>Mengaktifkan fitur ini akan meningkatkan penggunaan memori <i>µBlock<\/i>.<\/p>",
     "description":"English: see English messages.json"
   },
   "3pListsOfBlockedHostsHeader":{
-    "message":"Lists of blocked hosts",
+    "message":"Daftar host yang diblokir",
     "description":"English: Lists of blocked hosts"
   },
   "3pApplyChanges":{
-    "message":"Apply changes",
+    "message":"Terapkan perubahan",
     "description":"English: Apply changes"
   },
   "3pGroupAds":{
-    "message":"Ads",
+    "message":"Iklan",
     "description":"English: Ads"
   },
   "3pGroupPrivacy":{
-    "message":"Privacy",
+    "message":"Privasi",
     "description":"English: Privacy"
   },
   "3pGroupMalware":{
-    "message":"Malware domains",
+    "message":"Domain malware",
     "description":"English: Malware domains"
   },
   "3pGroupSocial":{
-    "message":"Social",
+    "message":"Sosial",
     "description":"English: Social"
   },
   "3pGroupMultipurpose":{
-    "message":"Multipurpose",
+    "message":"Serbaguna",
     "description":"English: Multipurpose"
   },
   "3pGroupRegions":{
-    "message":"Regions, languages",
+    "message":"Daerah, bahasa",
     "description":"English: Regions, languages"
   },
   "3pGroupCustom":{
-    "message":"Custom",
+    "message":"Kustom",
     "description":"English: Custom"
   },
   "3pExternalListsHint":{
-    "message":"One URL per line. Lines prefixed with &lsquo;!&rsquo; will be ignored. Invalid URLs will be silently ignored.",
+    "message":"Satu URL per baris. Baris yang diawali dengan '!' akan diabaikan. URL yang tidak valid akan diabaikan tanpa peringatan.",
     "description":"English: One URL per line. Lines prefixed with &lsquo;!&rsquo; will be ignored. Invalid URLs will be silently ignored."
   },
   "3pExternalListsApply":{
-    "message":"Apply",
+    "message":"Terapkan",
     "description":"English: Apply"
   },
   "3pExternalListPurge":{
-    "message":"purge cache",
+    "message":"bersihkan cache",
     "description":"English: purge cache"
   },
   "3pExternalListNew":{
-    "message":"new version available",
+    "message":"versi baru tersedia",
     "description":"English: new version available"
   },
   "3pExternalListObsolete":{
-    "message":"may be obsolete",
+    "message":"mungkin sudah usang",
     "description":"English: may be obsolete"
   },
   "1pFormatHint":{
-    "message":"One filter per line. A filter can be a plain hostname, or an Adblock Plus-compatible filter. Lines prefixed with &lsquo;!&rsquo; will be ignored.",
+    "message":"Satu filter per baris. Filter dapat berupa hostname, atau filter yang kompatibel dengan Adblock Plus. Baris yang diawali dengan '!' akan diabaikan.",
     "description":"English: One filter per line. A filter can be a plain hostname, or an Adblock Plus-compatible filter. Lines prefixed with &lsquo;!&rsquo; will be ignored."
   },
   "1pImport":{
-    "message":"Import and append",
+    "message":"Impor dan tambahkan",
     "description":"English: Import and append"
   },
   "1pExport":{
-    "message":"Export",
+    "message":"Ekspor",
     "description":"English: Export"
   },
   "1pApplyChanges":{
-    "message":"Apply changes",
+    "message":"Terapkan perubahan",
     "description":"English: Apply changes"
   },
   "whitelistPrompt":{
-    "message":"Your list of host names for which µBlock will be disabled. One entry per line. Invalid host names will be silently ignored.",
+    "message":"Daftar nama host yang mana µBlock dinonaktifkan. Satu entri per baris. Nama host yang tidak valid akan diabaikan.",
     "description":"English: Your list of host names for which µBlock will be disabled. One host name per line. Invalid host names will be silently ignored."
   },
   "whitelistImport":{
-    "message":"Import and append",
+    "message":"Impor dan tambahkan",
     "description":"English: Import and append"
   },
   "whitelistExport":{
-    "message":"Export",
+    "message":"Ekspor",
     "description":"English: Export"
   },
   "whitelistApply":{
-    "message":"Apply changes",
+    "message":"Terapkan perubahan",
     "description":"English: Apply changes"
   },
   "logBlockedRequestsPrompt":{
-    "message":"Enable the logging of blocked requests",
+    "message":"Aktifkan log permintaan yang diblokir",
     "description":"English: Enable the logging of blocked requests"
   },
   "logBlockedRequestsHelp":{
-    "message":"You can inspect the details of blocked requests if you wish by enabling this option. The logging of blocked requests increases the memory footprint of µBlock. Since many users will never use this feature, it is disabled by default.",
+    "message":"Jika ingin, Anda dapat memeriksa secara rinci permintaan yang diblokir, dengan mengaktifkan opsi ini. Pencatatan permintaan yang didiblokir meningkatkan penggunaan memori µBlock. Karena banyak pengguna tidak akan pernah menggunakan fitur ini, maka fitur ini dinonaktifkan secara default.",
     "description":"English: see _locales\/en\/messages.log"
   },
   "logAllowedRequestsPrompt":{
-    "message":"Enable the logging of non-blocked requests",
+    "message":"Aktifkan log untuk permintaan yang tidak  diblokir",
     "description":"English: Enable the logging of non-blocked requests"
   },
   "logAllowedRequestsHelp":{
-    "message":"You can inspect the details of non-blocked requests if you wish by enabling this option. The logging of non-blocked requests increases the memory footprint of µBlock. Since many users will never use this feature, it is disabled by default.",
+    "message":"Jika ingin, Anda dapat memeriksa secara rinci permintaan yang tidak diblokir, dengan mengaktifkan opsi ini. Pencatatan permintaan yang tidak didiblokir meningkatkan penggunaan memori µBlock. Karena banyak pengguna tidak akan pernah menggunakan fitur ini, maka fitur ini dinonaktifkan secara default.",
     "description":"English: see _locales\/en\/messages.log"
   },
   "logBlockedRequestsHeader":{
-    "message":"Blocked requests",
+    "message":"Permintaan yang diblokir",
     "description":"English: Blocked requests"
   },
   "logAllowedRequestsHeader":{
-    "message":"Allowed requests",
+    "message":"Permintaan yang diperbolehkan",
     "description":"English: Allowed requests"
   },
   "logRequestsHeaderType":{
-    "message":"Type",
+    "message":"Tipe",
     "description":"English: Type"
   },
   "logRequestsHeaderDomain":{
@@ -244,23 +244,23 @@
     "description":"English: Filter"
   },
   "logBlockedRequestsEmpty":{
-    "message":"No blocked requests logged for this page",
+    "message":"Tidak ada permintaan yang diblokir tercatat untuk halaman ini",
     "description":"English: No blocked requests logged for this page"
   },
   "logAllowedRequestsEmpty":{
-    "message":"No non-blocked requests logged for this page",
+    "message":"Tidak ada permintaan yang tidak diblokir tercatat untuk halaman ini",
     "description":"English: No non-blocked requests logged for this page"
   },
   "aboutChangelog":{
-    "message":"Change log",
+    "message":"Catatan perubahan",
     "description":"English: Change log"
   },
   "aboutCode":{
-    "message":"Source code (GPLv3)",
+    "message":"Kode sumber (GPLv3)",
     "description":"English: Source code (GPLv3)"
   },
   "aboutContributors":{
-    "message":"Contributors",
+    "message":"Kontributor",
     "description":"English: Contributors"
   },
   "dummy":{

@@ -1,8 +1,8 @@
 [Adblock Plus 1.1]
-! Checksum: jiwF2KcOBKTLfZIcBjLy5A
-! Version: 201408231411
+! Checksum: F5LH2gpd8w0XFpS4vp5jVw
+! Version: 201408291431
 ! Title: EasyPrivacy
-! Last modified: 23 Aug 2014 14:11 UTC
+! Last modified: 29 Aug 2014 14:31 UTC
 ! Expires: 4 days (update frequency)
 ! Homepage: https://easylist.adblockplus.org/
 ! Licence: https://easylist-downloads.adblockplus.org/COPYING
@@ -2101,6 +2101,7 @@
 ://adclear.*/acc?
 ://adclear.*/acv?
 ://anx.*/anx.gif?
+://anx.*/tr.gif?
 ://apex.*/apexTarget?
 ://b.*/click?
 ://b.*/ping?
@@ -2969,6 +2970,7 @@ http://utm.
 ||leadintelligence.co.uk^$third-party
 ||leadlife.com^$third-party
 ||leadmanagerfx.com^$third-party
+||leadpages.net^$third-party
 ||leadsius.com^$third-party
 ||legolas-media.com^$third-party
 ||les-experts.com^$third-party
@@ -3071,6 +3073,7 @@ http://utm.
 ||mouseflow.com^$third-party
 ||mousestats.com^$third-party
 ||mousetrace.com^$third-party
+||movable-ink-6710.com^$third-party
 ||mplxtms.com^$third-party
 ||mpstat.us^$third-party
 ||msgapp.com^$third-party
@@ -3129,6 +3132,7 @@ http://utm.
 ||nik.io^$third-party
 ||noowho.com^$third-party
 ||nordicresearch.com^$third-party
+||nowinteract.com^$third-party
 ||npario-inc.net^$third-party
 ||nprove.com^$third-party
 ||nr7.us^$third-party
@@ -5186,6 +5190,7 @@ http://utm.
 ||o.aolcdn.com/js/mg1.js
 ||observer.ip-label.net^
 ||ocp.cnettv.com^*/Request.jsp?
+||octopart-analytics.com^$third-party
 ||oddcast.com/event.php?$object-subrequest
 ||offermatica.intuit.com^
 ||offers.keynote.com^$third-party
@@ -5199,7 +5204,7 @@ http://utm.
 ||ooyala.com/authorized?analytics
 ||ooyala.com/verify?
 ||ooyala.com^*/report?log
-||open.delivery.net^$third-party
+||open.delivery.net^
 ||ophan.co.uk/t.gif?
 ||optimizely.appspot.com^$third-party
 ||orts.wixawin.com^$third-party
@@ -5368,6 +5373,7 @@ http://utm.
 ||st.dynamicyield.com^$third-party
 ||stat.easydate.biz^
 ||stat.ed.cupidplc.com^
+||stat.itp-nyc.com^
 ||stat.segitek.hu^
 ||stat.to.cupidplc.com^$third-party
 ||stat.web-regie.com^
@@ -5468,6 +5474,8 @@ http://utm.
 ||techweb.com/beacon/
 ||the-group.net/aether/
 ||thefilter.com^*?extanonid=$~script
+||themesltd.com/hit-counter/$third-party
+||themesltd.com/online-users-counter/$third-party
 ||thepornstarlist.com/lo/lo/track.php?
 ||thespringbox.com/analytics/
 ||thetradedesk-tags.s3.amazonaws.com^
@@ -5706,7 +5714,6 @@ http://utm.
 ||yellowbrix.com/images/content/cimage.gif?
 ||yellowpages.com^*.gif?tid$third-party
 ||yext.com/plpixel?
-||yimg.com/uq/syndication/yad.js
 ||yimg.com^*/l?ig=$image
 ||ypcdn.com/*/webyp?
 ||zoover.co.uk/tracking/
@@ -6599,6 +6606,7 @@ http://utm.
 ||cooliris.com/shared/stats/
 ||cosmopolitan.co.za/rest/track/
 ||count.livetv.ru^
+||count.livetv.sx^
 ||count.prx.org^
 ||counter.promodeejay.net^
 ||counter.theconversation.edu.au^
@@ -6679,6 +6687,7 @@ http://utm.
 ||dyo.gs/track/
 ||easy2.com^*/logging/
 ||easygoodhealth.com/js/utracker.js
+||ebay-us.com/fp/
 ||ebay.com/op/t.do?event
 ||ebayobjects.com/*;dc_pixel_url=$image
 ||ec2-prod-tracker.babelgum.com^
@@ -8112,6 +8121,7 @@ http://utm.
 ||chip.de/js/omniture_somtr_code_vH.25.js
 ||consumerreports.org^*/s_code.js
 ||csmonitor.com/extension/csm_base/design/csm_design/javascript/omniture/s_code.js
+||disneylandparis.fr^*/s_code.js
 ||el-mundo.net/js/s_code.js$domain=elmundo.es|marca.com
 ||expressen.se/static/scripts/s_code.js?
 ||hayneedle.com/js/s_code.min.*.js
@@ -8783,6 +8793,7 @@ http://utm.
 @@||adobetag.com^*s_code.js$domain=fnac.com
 @@||aflac.com/js/wt_capi.js
 @@||akamai.net^*/omniture.jsp$script,domain=walmart.com
+@@||aliunicorn.com^*/click-stat.js
 @@||aliunicorn.com^*/click_stat/
 @@||analytics.atomiconline.com/services/jquery.js
 @@||analytics.edgesuite.net/html5/akamai*.js$domain=resignationbrewery.com
@@ -8791,7 +8802,7 @@ http://utm.
 @@||anthem.com/includes/foresee/foresee-trigger.js
 @@||aol.com/mm_track/slideshow/$subdocument
 @@||aolcdn.com/js/mg2.js$domain=autoblog.com|autos.aol.com|dailyfinance.com
-@@||aolcdn.com/omniunih.js$domain=autoblog.com|autos.aol.com|engadget.com|mapquest.com|video.aol.com|www.aol.com
+@@||aolcdn.com/omniunih.js$domain=aim.com|autoblog.com|autos.aol.com|engadget.com|mapquest.com|video.aol.com|www.aol.com
 @@||aolcdn.com/omniunih_int.js$domain=autoblog.com
 @@||aolcdn.com^*/beacon.min.js$domain=autoblog.com|dailyfinance.com
 @@||api.chartbeat.com^script,domain=financialpost.com|wcpo.com|couriermail.com.au|betabeat.com
@@ -8877,6 +8888,7 @@ http://utm.
 @@||descopera.ro/js/addLinkerEvents-ga.js
 @@||diablo3.com/assets/js/jquery.google-analytics.js
 @@||directline.com/touchclarity/$script
+@@||dmeserv.newsinc.com^*/dynamicWidgets.js$domain=timesfreepress.com
 @@||doubleclick.net/activityi;src=$object-subrequest,domain=cicispizza.com
 @@||dw.cbsi.com/anonc.js$domain=cnet.com
 @@||dw.cbsi.com/js/dw.js$domain=cnet.com
@@ -9056,6 +9068,7 @@ http://utm.
 @@||pokemonblackwhite.com^*/jquery.google-analytics.js
 @@||polycom.com/polycomservice/js/unica/ntpagetag.js
 @@||popeater.com/traffic/?$script,domain=popeater.com
+@@||pp-serve.newsinc.com^*/unitsdata.js?$domain=timesfreepress.com
 @@||push2check.com/stats.php
 @@||quantcast.com/wp-content/themes/quantcast/$domain=quantcast.com
 @@||quantserve.com/quant.js$domain=apps.facebook.com|caranddriver.com|g4tv.com|nymag.com|salon.com|theblaze.com
@@ -9172,7 +9185,7 @@ http://utm.
 @@||gametrailers.com/b/ss/$object-subrequest
 ! Preliminarily whitelisting Omniture s_code tracking pixels (script versions H.25 - H.25.2) due to breakage (https://adblockplus.org/forum/viewtopic.php?f=10&t=11378) if blocking the script causes issues
 @@||112.2o7.net/b/ss/$image,domain=espn.com.br
-@@||122.2o7.net/b/ss/$image,domain=billetnet.dk|billettservice.no|goal.com|lippupalvelu.fi|pcworld.com|riverisland.com|techhive.com|ticketmaster.ae|ticketmaster.co.uk|ticketmaster.de|ticketmaster.ie|ticketmaster.nl|ticnet.se
+@@||122.2o7.net/b/ss/$image,domain=billetnet.dk|billettservice.no|citibank.co.in|goal.com|lippupalvelu.fi|pcworld.com|riverisland.com|techhive.com|ticketmaster.ae|ticketmaster.co.uk|ticketmaster.de|ticketmaster.ie|ticketmaster.nl|ticnet.se
 @@||fandango.com/b/ss/$image
 @@||globalnews.ca/b/ss/
 @@||info.seek.com/b/ss/$image,domain=seek.com.au

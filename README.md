@@ -6,6 +6,8 @@ See [Wiki](https://github.com/gorhill/uBlock/wiki) for more information.
 An efficient blocker for Chromium-based browsers. Fast and lean. Written from scratch. Development 
 through benchmarking.
 
+**µBlock is not an "ad blocker", it's a blocker in the broad sense**, which happens to block ads through its support of [Adblock Plus filters](https://adblockplus.org/en/filters). _EasyList_, _EasyPrivacy_ and _Peter Lowe's Adservers_ list are enabled by default when you install µBlock. Many more lists are readily available to protect yourself from trackers, analytics, data mining, and more ads.
+
 <p align="center">
 µBlock: page loaded. ABP: page still loading.<br>
 <img src="https://raw.githubusercontent.com/gorhill/uBlock/master/doc/img/abp-vs-ublock-page-1.png" /><br>
@@ -68,7 +70,13 @@ There is nothing more to it. But it does what popular blockers out there do, at 
 fraction of CPU and memory usage for the same blocking power. Also, no unique user id 
 and no home means no phoning home (some popular blockers do this, just be careful).
 
-Free. Open source. No donations sought. For users by users. 
+Free. Open source. For users by users. No donations sought.
+
+Actually, as the extension is becoming more popular, there is only one thing I ask: 
+If you like the extension, please, _please_ do not succumb to blind fanboyism. 
+I want this project to stick to objective, intellectually honest measurements and 
+reproducible benchmarks, not on arguments which can't be backed up under scrutiny 
+or worst, pulled out of thin air. **Remember: Development through benchmarking.**
 
 Without the preset lists of filters, this extension is nothing. So if ever you 
 really do want to contribute something, think about the people working hard 

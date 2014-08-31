@@ -117,7 +117,6 @@
 
 var messaging = (function(name){
     var port = null;
-    var dangling = false;
     var requestId = 1;
     var requestIdToCallbackMap = {};
     var listenCallback = null;
@@ -137,9 +136,10 @@ var messaging = (function(name){
         if ( !callback ) {
             return;
         }
-        callback(details.msg);
+        // Must be removed before calling client to be sure to not execute
+        // callback again if the client stops the messaging service.
         delete requestIdToCallbackMap[details.id];
-        checkDisconnect();
+        callback(details.msg);
     };
 
     var start = function(name) {
@@ -154,20 +154,30 @@ var messaging = (function(name){
                     )
         });
         port.onMessage.addListener(onPortMessage);
-    };
 
-    if ( typeof name === 'string' && name.length > 0 ) {
-        start(name);
-    }
+        // https://github.com/gorhill/uBlock/issues/193
+        port.onDisconnect.addListener(stop);
+    };
 
     var stop = function() {
         listenCallback = null;
-        dangling = true;
-        checkDisconnect();
+        port.disconnect();
+        port = null;
+        flushCallbacks();
     };
 
+    if ( typeof name === 'string' && name !== '' ) {
+        start(name);
+    }
+
     var ask = function(msg, callback) {
-        if ( !callback ) {
+        if ( port === null ) {
+            if ( typeof callback === 'function' ) {
+                callback();
+            }
+            return;
+        }
+        if ( callback === undefined ) {
             tell(msg);
             return;
         }
@@ -177,22 +187,30 @@ var messaging = (function(name){
     };
 
     var tell = function(msg) {
-        port.postMessage({ id: 0, msg: msg });
+        if ( port !== null ) {
+            port.postMessage({ id: 0, msg: msg });
+        }
     };
 
     var listen = function(callback) {
         listenCallback = callback;
     };
 
-    var checkDisconnect = function() {
-        if ( !dangling ) {
-            return;
+    var flushCallbacks = function() {
+        var callback;
+        for ( id in requestIdToCallbackMap ) {
+            if ( requestIdToCallbackMap.hasOwnProperty(id) === false ) {
+                continue;
+            }
+            callback = requestIdToCallbackMap[id];
+            if ( !callback ) {
+                continue;
+            }
+            // Must be removed before calling client to be sure to not execute
+            // callback again if the client stops the messaging service.
+            delete requestIdToCallbackMap[id];
+            callback();
         }
-        if ( Object.keys(requestIdToCallbackMap).length ) {
-            return;
-        }
-        port.disconnect();
-        port = null;
     };
 
     return {
@@ -222,6 +240,8 @@ var divDialog = null;
 var taCandidate = null;
 
 var targetElements = [];
+var svgWidth = 0;
+var svgHeight = 0;
 
 /******************************************************************************/
 
@@ -618,9 +638,26 @@ var onKeyPressed = function(ev) {
 
 /******************************************************************************/
 
+// https://github.com/gorhill/uBlock/issues/190
+// May need to dynamically adjust the height of the overlay + new position
+// of highlighted elements.
+
+var onScrolled = function(ev) {
+    var newHeight = this.scrollY + this.innerHeight;
+    if ( newHeight > svgHeight ) {
+        svgHeight = newHeight;
+        svgRoot.setAttribute('height', svgHeight);
+        svgRoot.setAttribute("viewBox", '0 0 ' + svgWidth + ' ' + svgHeight);
+    }
+    highlightElements(targetElements, true);
+};
+
+/******************************************************************************/
+
 var stopPicker = function() {
     if ( pickerRoot !== null ) {
         document.removeEventListener('keydown', onKeyPressed);
+        window.removeEventListener('scroll', onScrolled);
         taCandidate.removeEventListener('input', onCandidateChanged);
         divDialog.removeEventListener('click', onDialogClicked);
         svgRoot.removeEventListener('mousemove', onSvgHovered);
@@ -772,8 +809,11 @@ var startPicker = function() {
 
     svgRoot = document.createElementNS(svgns, 'svg');
     svgRoot.innerHTML = '<path /><path />';
-    var svgWidth = document.documentElement.scrollWidth;
-    var svgHeight = document.documentElement.scrollHeight;
+    svgWidth = document.documentElement.scrollWidth;
+    svgHeight = Math.max(
+        document.documentElement.scrollHeight,
+        window.scrollY + window.innerHeight
+    );
     svgRoot.setAttribute('x', 0);
     svgRoot.setAttribute('y', 0);
     svgRoot.setAttribute('width', svgWidth);
@@ -811,6 +851,7 @@ var startPicker = function() {
     divDialog.addEventListener('click', onDialogClicked);
     taCandidate = divDialog.querySelector('textarea');
     taCandidate.addEventListener('input', onCandidateChanged);
+    window.addEventListener('scroll', onScrolled);
     document.addEventListener('keydown', onKeyPressed);
 };
 

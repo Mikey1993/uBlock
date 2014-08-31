@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
-! Checksum: zNHp2/P+7srwHHdJfSwyqg
+! Checksum: 4LgDsUgCY0nYqzR67Hz96w
 ! Title: EasyList Hebrew
-! Last modified: 21/08/14  11:51
+! Last modified: 28/08/14  10:53
 ! Expires: 4 days (update frequency)
 ! Homepage: https://github.com/AdBlockPlusIsrael/EasyListHebrew/
 ! Forums: https://github.com/AdBlockPlusIsrael/EasyListHebrew/issues
@@ -32,7 +32,7 @@
 ||akamaihd.net^$image,third-party,domain=fxp.co.il
 ||amazing-offers.co.il^$popup,third-party
 ||asafnewcalc.mataniphone.tempurl.co.il/calculator3/$popup
-||ashleymadison.com/app/public/$popup
+||ashleymadison.com/app/public/$popup,third-party
 ||best-offers.co.il^$popup
 ||bizportal.co.il/web/secur/redirreklama.asp*213.8.137.51/Erate/LinkTo$popup
 ||campaign.alpha.co.il/?campaign^$popup,third-party
@@ -61,7 +61,7 @@
 ||osef.co.il^$third-party
 ||pera.co.il^$third-party
 ||s.tool-site.com^$third-party
-||sekindo.com^$popup
+||sekindo.com^$popup,third-party
 ||streamin.to^$popup
 ||syngrestic.com/null^$popup
 ||talkahead.com^$third-party
@@ -93,6 +93,7 @@
 ||ynet.co.il/images/headline_video_header_samsung.png
 ||ynet.co.il/WinWinCooperation/
 ||ynet.co.il^*/ynetbanneradmin/
+||ynet.hiro.co.il/crossdomain.xml
 ||ynetshops.co.il/article/showbanner2/
 !-nrg-!
 ||nrg.co.il/cache/banners
@@ -167,6 +168,7 @@
 ||bgu4u.co.il/download/banners/
 ||bizportal.co.il/Scripts/maavaron.js?v=
 ||cdn.mdigital.co.il/video/*.flv$domain=globes.co.il
+||cdn.salamtak.org.uk^$domain=fxp.co.il
 ||cdn.shorte.st/link-converter.min.js
 ||chabad.info/images/pirsomot/
 ||cinema-city.co.il/media/nlc2013/flash/*banner
@@ -177,6 +179,7 @@
 ||fcdn.co.il/*.swf$domain=fxp.co.il
 ||fcdn.co.il/*/*/*.php$domain=fxp.co.il
 ||gear.co.il/Content/MediaItems/Campaigns/
+||globusmax.co.il/images/950x171leumi_diners(5).swf
 ||gozlan.be/st_j.js
 //gozlan.be/st_j.js|
 ||haflla.com/download/banners/
@@ -209,6 +212,7 @@
 ||scity.co.il/scity_728_sdarot.swf
 ||sdarot.*/banner
 ||seret.co.il/images/banners/pagehasut/PageHasut
+||seretil.me/cdn-cgi/*rocket.js
 ||seretil.me/cdn-cgi/nexp/dok9
 ||sport5.co.il/banners2/
 ||static.vgames.co.il/cdn/css/global.bg_comm.css?v=
@@ -280,13 +284,14 @@
 @@||mako.checkm8.com/adam/inline?cat=mako.*=OVERLAY$object-subrequest
 @@||mako.checkm8.com/adam/inline?cat=mako.*=SAGIR_$object-subrequest
 @@||mako.checkm8.com/crossdomain.xml$object-subrequest
-@@||mediadownload.ynet.co.il/ads/*.flv$object-subrequest
 @@||mouse.co.il/images/ad_mouse_cafe.jpg
 @@||nrg.co.il/online/*_468.htm$~third-party,xmlhttprequest
 @@||one.co.il/ads/*.mp4$object-subrequest
 @@||one.co.il/images/Ads/2011/12/26/1015/logo_51x20.gif
 @@||one.co.il/images/Ads/2013/10/20/2230/racer_51x20hp.png
 @@||one.co.il/images/ads/2014/06/02/1415/MNDL2.swf
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=goalim4u.org
+@@||parkinson.org.il/_Uploads/dbsBanners/
 @@||players.edgesuite.net/flash/analytics/qos$domain=mako.co.il
 @@||pubads.g.doubleclick.net/gampad/ad$domain=globes.co.il|m.ynet.co.il|mako.co.il
 @@||se.c04dl.vds-is.castup.net/server12/468/208/20816834-115.mp4$domain=mako.co.il
@@ -423,6 +428,7 @@ dacho.co.il##.fixed_position1
 doctors.co.il###big_banner
 doctors.co.il##div[id^="dgBan"]
 dossinet.me###bg_banner_header_top
+fxp.co.il##.condition
 flix.mako.co.il###topBannerTable
 flix.tapuz.co.il##.headerMiddle
 flix.tapuz.co.il##DIV[style="background-color: #FFFFFF; margin-left: auto; margin-right: auto; min-height: 94px;\a     padding-bottom: 10px; padding-top: 65px; text-align: center; width: 960px;"]
@@ -432,6 +438,7 @@ frogi.co.il##.adbox
 fxp.co.il###adfxp
 fxp.co.il###vc_widget
 fxp.co.il###web_3_tool
+fxp.co.il##.captain
 fxp.co.il##A[href^="http://fcdn.co.il"]
 fxp.co.il##[style="width: 160px; height: 600px; top: 50px; position: fixed; right: 286.5px;"]
 fxp.co.il##[style="width: 160px; height: 600px; top: 50px; position: fixed; right: 9.5px;"]
